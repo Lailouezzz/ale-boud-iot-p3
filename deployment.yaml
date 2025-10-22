@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iot-p3
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: iot-p3
+  template:
+    metadata:
+      name: iot-p3
+      labels:
+        app: iot-p3
+    spec:
+      containers:
+        - name: iot-p3
+          image: wil42/playground:v1
+          imagePullPolicy: IfNotPresent
