@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: iot-p3
+  namespace: dev
 spec:
   replicas: 1
   revisionHistoryLimit: 0
@@ -18,3 +19,6 @@ spec:
         - name: iot-p3
           image: wil42/playground:v1
           imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8888
